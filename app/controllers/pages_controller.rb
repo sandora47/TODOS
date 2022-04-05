@@ -1,10 +1,8 @@
-class PagesController < ApplicationController
-#def todopage
-#@heading = 'todos page'
-#@text = 'page of todo'
-#end
+# frozen_string_literal: true
 
-def todopage
-  @todo = Todo.all
-end
+class PagesController < ApplicationController
+
+  def todopage
+    @todo = Todo.all
+  end
 end

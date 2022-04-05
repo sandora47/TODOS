@@ -1,0 +1,83 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'frontend/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - config/**/*
+    - Gemfile
+    - Guardfile
+    - 'features/**/*'
+    - 'app/views/**/*'
+    - 'spec/**/*'
+    - 'lib/tasks/**/*'
+    - 'bin/**/*'
+    - '.pryrc'
+
+  DisplayCopNames: true
+
+Metrics/BlockLength:
+  Enabled: false
+
+# Temporary disabled
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Style/SymbolArray:
+  Enabled: true
+  EnforcedStyle: brackets
+
+Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 15
+  Exclude:
+    - features/support/action_dispatch_hack.rb
+
+Metrics/ModuleLength:
+  Max: 150
+
+Style/AsciiComments:
+  Enabled: false
+
+Layout/EmptyLinesAroundBlockBody:
+  EnforcedStyle: no_empty_lines
+
+Style/GlobalVars:
+  Enabled: false
+
+Naming/VariableNumber:
+  EnforcedStyle: normalcase
+
+Style/WordArray:
+  Enabled: false
+
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/ZeroLengthPredicate:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Lint/NestedMethodDefinition:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+  Exclude:
+    - features/support/action_dispatch_hack.rb

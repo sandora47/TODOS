@@ -1,5 +1,5 @@
 <h2>Добавление</h2>
-<%= form_for :todos, url: todos_path do |f| %>
+<%= form_for :todo, url: todos_path, data: {turbo: false } do |f| %>
   <% if @todo.errors.any? %>
     <% @todo.errors.full_messages.each do |msg| %>
       <div class="alert alert-danger"><%= msg %></div>
