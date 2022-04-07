@@ -1,0 +1,6 @@
+<h1><%= @todo.title %></h1>
+<p><%= @todo.body %></p>
+<hr>
+<%= link_to "Редактировать", edit_todo_path(@todo), :class => 'btn btn-warning' %>
+
+<%= link_to "del", todo_path(@todo), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger ml-3" %>
