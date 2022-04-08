@@ -1,0 +1,8 @@
+<h1><%= @todo.title %></h1>
+<p><%= @todo.body %></p>
+<hr>
+<%= link_to "Редактировать", edit_todo_path(@todo), :class => 'btn btn-warning' %>
+
+<%= link_to "del", todo_path(@todo), data: { method: :delete }, class: "btn btn-danger ml-3" %>
+
+<%= link_to "Удалить", todo_path(@todo), method: :delete, :class => 'btn btn-danger' %>
