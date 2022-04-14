@@ -1,0 +1,9 @@
+<h1>todos glav</h1>
+
+<% @todo.each do |todo| %>
+<div class="well">
+  <h3><%= todo.title %></h3>
+  <p><%= todo.body %></p>
+  <%= link_to "Читать далее", todo_path(todo), :class => 'btn btn-info' %>
+  </div>
+<% end %>
