@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class TodosController < ApplicationController
-
   def index
     @todo = Todo.all
   end
