@@ -2,14 +2,22 @@
 <p><%= @todo.body %></p>
 <hr>
 <div class="btn-group" role="group" aria-label="Basic example">
-  <span class="me-1 py-1"><%= link_to 'Редактировать', edit_todo_path(@todo), :class => 'btn btn-warning' %></span>
-  <span class="me-1 py-1"><%= button_to 'Удалить', todo_path(@todo), method: :delete, :class => 'btn btn-danger' %></span>
+  <span class="me-1 py-1"><%= link_to 'Редактировать', edit_todo_path(@todo),
+  :class => 'btn btn-warning' %></span>
+  <span class="me-1 py-1"><%= button_to 'Удалить', todo_path(@todo),
+  method: :delete, :class => 'btn btn-danger' %></span>
 </div>
 <hr>
 <h2>все коментарии</h2>
 <% @todo.comments.each do |comment| %>
   <div class="allert allert-light">
-    <p><strong><%= comment.username %></strong>: <%= comment.body %></p>
+    <p><strong><%= comment.username %></strong>:<%= comment.body %></p>
+  </div>
+  <div class="btn-group" role="group" aria-label="comments">
+    <span class="me-1 py-1"><%= link_to 'Редактировать', edit_todo_comment_path(@todo, comment),
+    :class => 'btn btn-warning' %></span>
+    <span class="me-1 py-1"><%= button_to 'Удалить', todo_comment_path(@todo, comment),
+    method: :delete, :class => 'btn btn-danger' %></span>
   </div>
 <% end %>
 <hr>
