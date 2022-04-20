@@ -11,6 +11,7 @@
   <div class="allert allert-light">
     <p><strong><%= comment.username %></strong>: <%= comment.body %></p>
   </div>
+  <%= link_to 'ddd', [comment.todo, comment], method: :delete, :class => 'btn btn-warning' %>
  <% end %>
 <hr>
 <h2>Добавление коментария</h2>

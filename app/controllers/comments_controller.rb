@@ -9,6 +9,13 @@ class CommentsController < ApplicationController
     redirect_to todo_path(@todo)
   end
 
+  def destroy
+    @todo = Todo.find(params[:todo_id])
+    @comment = @todo.comments.find(params[:id])
+    @coment.destroy
+    
+    redirect_to todo_path(@todo)
+  end 
 
   private
 
