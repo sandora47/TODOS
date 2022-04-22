@@ -1,4 +1,4 @@
-<h1>todos glav</h1>
+<h1>Главная страница</h1>
 <% @todo.each do |todo| %>
   <div class="well">
     <h3><%= todo.title %></h3>
@@ -6,3 +6,5 @@
     <%= link_to "Читать далее", todo_path(todo), :class => 'btn btn-info' %>
   </div>
 <% end %>
+<br>
+<span class="me-1 py-1 btn btn-outline-primary"><%= link_to "Добавить", new_todo_path %></span>
