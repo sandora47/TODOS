@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class TodosController < ApplicationController
+  
+  before_action :set_todo!, only: %i[show destroy edit update]
+
   def index
     @todo = Todo.all
   end
@@ -10,15 +13,12 @@ class TodosController < ApplicationController
   end
 
   def show
-    @todo = Todo.find(params[:id])
   end
 
   def edit
-    @todo = Todo.find(params[:id])
   end
 
   def update
-    @todo = Todo.find(params[:id])
 
     if @todo.update(todo_params)
       redirect_to @todo
@@ -28,7 +28,6 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    @todo = Todo.find(params[:id])
     @todo.destroy
 
     redirect_to todos_path
@@ -48,5 +47,9 @@ class TodosController < ApplicationController
 
   def todo_params
     params.require(:todo).permit(:title, :body)
+  end
+
+  def set_todo!
+    @todo = Todo.find params[:id]
   end
 end
