@@ -1,0 +1,13 @@
+<%= form_for([@todo, @todo.comments.build]) do |f| %>
+  <p>
+    <%= f.label :Пользыватель %><br>
+    <%= f.text_field(:username, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    <%= f.label :Текст %><br>
+    <%= f.text_area(:body, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    <%= f.submit("comments add", {:class => 'form-control btn btn-warning'}) %>
+  </p>
+<% end %>

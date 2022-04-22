@@ -9,29 +9,7 @@
 </div>
 <hr>
 <h2>все коментарии</h2>
-<% @todo.comments.each do |comment| %>
-  <div class="allert allert-light">
-    <p><strong><%= comment.username %></strong>:<%= comment.body %></p>
-  </div>
-  <div class="btn-group" role="group" aria-label="comments">
-    <span class="me-1 py-1"><%= link_to 'Редактировать', edit_todo_comment_path(@todo, comment),
-    :class => 'btn btn-warning' %></span>
-    <span class="me-1 py-1"><%= button_to 'Удалить', todo_comment_path(@todo, comment),
-    method: :delete, :class => 'btn btn-danger' %></span>
-  </div>
-<% end %>
+<%= render 'comments/comment' %>
 <hr>
 <h2>Добавление коментария</h2>
-<%= form_for([@todo, @todo.comments.build]) do |f| %>
-  <p>
-    <%= f.label :Пользыватель %><br>
-    <%= f.text_field(:username, {:class => 'form-control'}) %>
-  </p>
-  <p>
-    <%= f.label :Текст %><br>
-    <%= f.text_area(:body, {:class => 'form-control'}) %>
-  </p>
-  <p>
-    <%= f.submit("comments add", {:class => 'form-control btn btn-warning'}) %>
-  </p>
-<% end %>
+<%= render 'comments/form' %>
