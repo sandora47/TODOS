@@ -31,7 +31,7 @@ class TodosController < ApplicationController
 
     @todo.destroy
 
-    redirect_to todos_path, status::see_other
+    redirect_to todos_path, status: :see_other
   end
 
   def create
@@ -48,6 +48,6 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:title, :body)
+    params.require(:todo).permit(:title, :body, :todopost)
   end
 end

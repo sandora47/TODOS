@@ -1,20 +1,4 @@
-<h2>Edit</h2>
-<%= form_for :todo, url: todos_path, data: {turbo: false } do |f| %>
-  <% if @todo.errors.any? %>
-    <% @todo.errors.full_messages.each do |msg| %>
-      <div class="alert alert-danger"><%= msg %></div>
-    <% end %>
-  <% end %>
-  <p>
-    Название<br>
-    <%= f.text_field(:title, {:class => 'form-control'}) %>
-  </p>
-  <p>
-    текст<br>
-    <%= f.text_area(:body, {:class => 'form-control'}) %>
-  </p>
+<h1>Edit Todo</h1>
 
-  <p>
-    <%= f.submit({:class => 'form-control btn btn-success'}) %>
-  </p>
-<% end %>
+<%= render "form", todo: @todo %>
+

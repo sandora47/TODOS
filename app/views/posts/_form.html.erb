@@ -1,8 +1,16 @@
 <%= form_with model: post do |form| %>
   <div>
-    <%= form.label :description %><br>
+    <%= form.label :Название %><br>
     <%= form.text_field :description %>
     <% @post.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :Текст %><br>
+    <%= form.text_area :body %><br>
+    <%= post.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>

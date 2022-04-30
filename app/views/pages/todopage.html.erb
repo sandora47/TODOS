@@ -1,7 +1,8 @@
 <h1>todo list</h1>
-  <% @todo.each do |todo| %>
-    <h3><%= todo.title %></h3>
-    <p><%= todo.body %></p>
-    <%= link_to "Читать далее", todo_path(todo), :class => 'btn btn-info' %>
+<% @todo.each do |todo| %>
+  <h3><%= todo.title %></h3>
+  <p><%= todo.body %></p>
+  <p><%= todo.todopost %></p>
+  <%= link_to "Читать далее", todo_path(todo), :class => 'btn btn-info' %>
 <% end %>
 <span class="btn btn-outline-primary"><%= link_to "Add", new_todo_path %></span>
