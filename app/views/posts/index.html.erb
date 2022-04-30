@@ -1,11 +1,10 @@
 <h1>Posts</h1>
-
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <%= link_to post.description, post %>
-    </li>
-  <% end %>
-</ul>
+<% @posts.each do |post| %>
+<div class="well">
+  <h3><%= post.description %></h3>
+  <p><%= post.body %></p>
+  <%= link_to "Читать далее", post_path(post), :class => 'btn btn-info' %>
+  </div>
+<% end %>
 
 <%= link_to "New Post", new_post_path %>
