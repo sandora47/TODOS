@@ -1,4 +1,4 @@
 <h1><%= @post.description %></h1>
-
+<p><%= @post.body %></p>
 <%= link_to "Редактировать", edit_post_path(@post), :class => 'btn btn-warning' %>
 <%= link_to "del", post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger ml-3" %>
