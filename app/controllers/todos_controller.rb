@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class TodosController < ApplicationController
-  
   before_action :set_todo!, only: %i[show destroy edit update]
 
   def index
@@ -12,14 +11,11 @@ class TodosController < ApplicationController
     @todo = Todo.new
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
-
     if @todo.update(todo_params)
       redirect_to @todo
     else

@@ -29,5 +29,5 @@ ActiveRecord::Schema.define(version: 20_220_413_181_028) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
-  add_foreign_key "comments", "todos"
+  add_foreign_key 'comments', 'todos'
 end
