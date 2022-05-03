@@ -57,5 +57,3 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'awesome_print', '~> 1.8'
 gem 'rubocop'
-gem 'bootstrap'
-gem autolink
