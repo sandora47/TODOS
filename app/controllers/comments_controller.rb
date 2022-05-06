@@ -3,10 +3,10 @@
 class CommentsController < ApplicationController
   before_action :set_todo!
   before_action :set_comment!, except: :create
-  
+
   def create
     @comment = @todo.comments.create(comment_params)
-    if (@comment.save)
+    if @comment.save
       redirect_to todo_path(@todo)
     else
       render 'edit'
@@ -18,12 +18,11 @@ class CommentsController < ApplicationController
     redirect_to todo_path(@todo)
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @comment.update comment_params
-      flash[:success] = "comment update"
+      flash[:success] = 'comment update'
       redirect_to todo_path(@todo)
     else
       render :edit
