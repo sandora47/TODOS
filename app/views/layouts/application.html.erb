@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <title>Todos</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -16,9 +18,23 @@
         <span class="fs-1">ToDos</span>
       </a>
       <nav class="d-flex flex-columb flex-md-row mt-2 mt-md-0 ms-md-auto btn-group" role="group" aria-label="head">
-        <span class="text-dark text-decoration-none btn btn-dark"><%= link_to "Home", home_path %></span>
-        <span class="text-dark text-decoration-none btn btn-dark"><%= link_to "Creat todo", new_todo_path %></span>
-        <span class="text-dark text-decoration-none btn btn-dark"><%= link_to "ToDos", todos_path %></span>
+        <span class="text-white text-decoration-none btn btn-dark"><%= link_to "Home", home_path %></span>
+        <span class="text-white text-decoration-none btn btn-dark"><%= link_to "Creat todo", new_todo_path %></span>
+        <span class="text-white text-decoration-none btn btn-dark"><%= link_to "ToDos", todos_path %></span>
+        <div class="btn-group">
+          <% if user_signed_in? %>
+            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
+              <%= current_user.name_or_email %>
+            </button>
+            <nav type="button" class="dropdown-menu dropdown-menu-dark">
+              <span class="mt-4"><%= button_to 'log out', session_path,
+                method: :delete, :class => "dropdown-item" %></span>
+            </nav>
+          <% else %>
+            <span class="text-decoration-none btn btn-dark"><%= link_to "Зарегистрироватся", new_user_path %></span>
+            <span class="text-decoration-none btn btn-dark"><%= link_to "Войти", new_session_path %></span>
+          <% end %>
+        </div>
       </nav>
     </div>
     <div class="container">

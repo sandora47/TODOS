@@ -1,0 +1,14 @@
+<h1>Авторизация</h1>
+<%= form_with url: session_path do |f| %>
+  <p>
+    <%= f.label :Email %><br>
+    <%= f.email_field(:email, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    <%= f.label :Пароль %><br>
+    <%= f.password_field(:password, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    <%= f.submit("Авторизироватся", {:class => 'form-control btn btn-warning'}) %>
+  </p>
+<% end %>
