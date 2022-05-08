@@ -33,6 +33,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails', '~> 5.1', '>= 5.1.2' # Добавляем гем для rspec
+  gem 'factory_bot_rails' # Гем для фабрики по созданию моделей для rspec
+  gem 'faker', '~> 2.20' # Гем для генерации случайных значений в тесте
 end
 
 group :development do
@@ -58,3 +61,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'rubocop'
 gem 'awesome_print', '~> 1.8'
 gem 'draper'
+
+
