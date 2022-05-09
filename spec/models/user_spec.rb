@@ -22,5 +22,15 @@ RSpec.describe User, type: :model do
         expect{ user.update!(email: '') }.to raise_exception(ActiveRecord::RecordInvalid, /Email can't be blank, Email is invalid/) # Проверяем что при обновлении Юзера с пустым имейлом будет ошибка
       end
     end
+    context "update user witn invalid params" do
+      it "should raise exception when not valid password" do
+        expect{ user.update!(password: '', password_confirmation: '') }.to raise_exception
+      end
+    end
+    context "update user witn invalid params" do
+      it "should raise exception when not valid password confirmation" do
+        expect{ user.update!(password: '123457690', password_confirmation: '') }.to raise_exception
+      end
+    end
   end
 end
