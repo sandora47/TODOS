@@ -6,6 +6,7 @@ RSpec.describe Comment, type: :model do
       expect { Comment.save! }.not_to raise_error(ActiveRecord::RecordInvalid)
     end
   end
+  
   describe "Update" do
     context "update comment with valid params" do
       it "should not raise exception" do
