@@ -1,25 +1,18 @@
 
-footer {
-  position: absolute;
-  bottom: 0;
+footer{
+  position: initial;
   left: 0;
+  bottom: 0;
   width: 100%;
-  padding: 0 2% 0 2%;
+  padding: 0 2%;
+  background: url(footer.png) repeat-x;
 }
 
-
-.btn {
+a{
   text-decoration: none;
+  color: white;
 }
 
-span.btn {
-  text-decoration: none;
-}
-
-nav {
-  text-decoration: none;
-}
-
-*{
-  text-decoration: none;
+#text_footer{
+  color: rgba(30, 15, 87, 0.979);
 }
