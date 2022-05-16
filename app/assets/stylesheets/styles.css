@@ -1,0 +1,25 @@
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 2% 0 2%;
+}
+
+
+.btn {
+  text-decoration: none;
+}
+
+span.btn {
+  text-decoration: none;
+}
+
+nav {
+  text-decoration: none;
+}
+
+*{
+  text-decoration: none;
+}
