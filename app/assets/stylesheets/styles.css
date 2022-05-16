@@ -1,10 +1,10 @@
 
-footer {
+footer{
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 0 2% 0 2%;
+  padding: 0 2% 0% 2%;
   background-color: darkgrey;
 }
 
@@ -13,6 +13,6 @@ a{
   color: white;
 }
 
-svg{
-  color: white;
+#one{
+  color: rgba(30, 15, 87, 0.979);
 }
