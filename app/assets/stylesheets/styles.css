@@ -8,18 +8,7 @@ footer {
 }
 
 
-.btn {
+a{
   text-decoration: none;
-}
-
-span.btn {
-  text-decoration: none;
-}
-
-nav {
-  text-decoration: none;
-}
-
-*{
-  text-decoration: none;
+  color: white;
 }
