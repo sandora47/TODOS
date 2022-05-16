@@ -32,14 +32,14 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:username, :body)
+    params.require(:comment).permit(:username, :body).merge(user_id: current_user.id)
   end
 
   def set_todo!
-    @todo = Todo.find params[:todo_id]
+    @todo = Todo.find(params[:todo_id])
   end
 
   def set_comment!
-    @comment = @todo.comments.find params[:id]
+    @comment = @todo.comments.find(params[:id])
   end
 end
