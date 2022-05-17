@@ -1,4 +1,7 @@
 <h1>todos glav</h1>
+
+<%= paginate @todos %>
+
 <% @todos.each do |todo| %>
   <div class="well">
     <h3><%= todo.title %></h3>
@@ -6,3 +9,6 @@
     <%= link_to "Читать далее", todo_path(todo), :class => 'btn btn-info' %>
   </div>
 <% end %>
+
+
+<%= paginate @todos %>
