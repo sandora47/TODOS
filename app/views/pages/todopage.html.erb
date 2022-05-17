@@ -2,6 +2,6 @@
   <% @todo.each do |todo| %>
   <h3><%= todo.title %></h3>
   <p><%= todo.body %></p>
-  <%= link_to "Читать далее", todo_path(todo), :class => 'btn btn-info' %>
+ <span class="btn btn-info"><%= link_to "Читать далее", todo_path(todo) %></span>
 <% end %>
-<span class="btn btn-outline-primary"><%= link_to "Add", new_todo_path %></span>
+<span class="btn btn-info"><%= link_to "Add", new_todo_path %></span>

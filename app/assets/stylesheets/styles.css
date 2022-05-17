@@ -1,0 +1,18 @@
+
+footer{
+  position: initial;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 0 2%;
+  background: url(footer.png) repeat-x;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+#text_footer{
+  color: rgba(30, 15, 87, 0.979);
+}
