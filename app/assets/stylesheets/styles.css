@@ -8,6 +8,10 @@ footer{
   background: url(footer.png) repeat-x;
 }
 
+.container {
+  min-height: 100vh;
+}
+
 a{
   text-decoration: none;
   color: white;
