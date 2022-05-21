@@ -33,6 +33,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+/dbdocker
 /public/packs
 /public/packs-test
 /node_modules
@@ -43,3 +44,4 @@ Gemfile.lock
 vendor/bundle
 .rubocop.yml
 .idea/
+.env
