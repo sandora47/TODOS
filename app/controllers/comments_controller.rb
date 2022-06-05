@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
+    flash[:success] = 'Comment delete!'
     redirect_to todo_path(@todo)
   end
 
@@ -22,7 +23,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update comment_params
-      flash[:success] = 'comment update'
+      flash[:success] = 'Comment update'
       redirect_to todo_path(@todo)
     else
       render :edit
