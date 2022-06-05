@@ -33,6 +33,7 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
 
     if @todo.save
+      flash[:alert] = 'Todo created!'
       redirect_to @todo
     else
       render 'new'
