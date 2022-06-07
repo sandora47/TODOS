@@ -1,31 +1,48 @@
 <h1><%= @todo.title %></h1>
-<p><%= @todo.body %></p>
+<time datetime="<%= @todo.formatted_created_at %>">
+  <%= @todo.formatted_created_at %>
+</time>
+<p class="lead my-3">
+  <%= @todo.body %>
+</p>
 <hr>
 <%= render partial: 'partials/form_button',
   locals: { edit_path: edit_todo_path(@todo),
             delete_path: todo_path(@todo) } %>
-<hr>
-<h2>все коментарии</h2>
-<% @todo.comments.each do |comment| %>
-  <div class="allert allert-light">
-    <p><strong><%= comment.username %></strong>:<%= comment.body %></p>
-  </div>
-<%= render partial: 'partials/form_button',
-  locals: { edit_path: edit_todo_comment_path(@todo, comment),
-            delete_path: todo_comment_path(@todo, comment) } %>
-<% end %>
-<hr>
+
+<hr class="my-3">
 <h2>Добавление коментария</h2>
-<%= form_for([@todo, @todo.comments.build]) do |f| %>
+
+<%= render 'partials/errors', object: @comment %>
+
+<%= form_with model: [@todo, @comment] do |f| %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :body %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
+  </div>
   <p>
-    <%= f.label :Пользыватель %><br>
-    <%= f.text_field(:username, {:class => 'form-control'}) %>
+    <%= f.submit("comments add", {:class => 'btn btn-warning'}) %>
   </p>
-  <p>
-    <%= f.label :Текст %><br>
-    <%= f.text_area(:body, {:class => 'form-control'}) %>
-  </p>
-  <p>
-    <%= f.submit("comments add", {:class => 'form-control btn btn-warning'}) %>
-  </p>
+<% end %>
+
+<h2 class="mt-4">Comments</h2>
+
+<% @comments.each do |comment| %>
+  <article class="mb-3">
+    <time datetime="<%= comment.formatted_created_at %>">
+      <%= comment.formatted_created_at %>
+    </time>
+
+    <p>
+      <%= comment.body %>
+    </p>
+    <%= render partial: 'partials/form_button',
+               locals: { edit_path: edit_todo_comment_path(@todo, comment),
+                         delete_path: todo_comment_path(@todo, comment) } %>
+  </article>
 <% end %>

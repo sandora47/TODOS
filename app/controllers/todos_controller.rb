@@ -11,7 +11,10 @@ class TodosController < ApplicationController
     @todo = Todo.new
   end
 
-  def show; end
+  def show
+    @comment = @todo.comments.build
+    @comments = Comment.order created_at: :desc
+  end
 
   def edit; end
 
