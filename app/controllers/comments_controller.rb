@@ -10,9 +10,13 @@ class CommentsController < ApplicationController
       flash[:success] = 'Comment created!'
       redirect_to todo_path(@todo)
     else
-      @comment = Comment.order created_at: :desc
+        @comments = Comment.order created_at: :desc
       render 'todos/show'
     end
+  end
+
+  def new
+    @comment = Comment.new
   end
 
   def destroy
