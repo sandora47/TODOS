@@ -43,3 +43,4 @@ Gemfile.lock
 vendor/bundle
 .rubocop.yml
 .idea/
+.env
