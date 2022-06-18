@@ -1,3 +1,5 @@
+<% provide :page_title, 'Registration user' %>
+<% currently_at 'Registration' %>
 <h1>Регистрация</h1>
 <%= form_with model: @user do |f| %>
   <% if @user.errors.any? %>
