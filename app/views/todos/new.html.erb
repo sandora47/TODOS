@@ -1,3 +1,5 @@
+<% provide :page_title, 'Create todo' %>
+<% currently_at 'Creat todo' %>
 <h2>Добавление</h2>
 <%= form_for :todo, url: todos_path do |f| %>
   <% if @todo.errors.any? %>
