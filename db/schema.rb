@@ -22,19 +22,11 @@ ActiveRecord::Schema.define(version: 2022_05_11_121016) do
     t.index ["todo_id"], name: "index_comments_on_todo_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.text "body"
-  end
-
   create_table "todos", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "todopost"
     t.integer "user_id"
   end
 

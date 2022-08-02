@@ -5,12 +5,18 @@ class CommentsController < ApplicationController
   before_action :set_comment!, except: :create
 
   def create
-    @comment = @todo.comments.create(comment_params)
+    @comment = @todo.comments.build(comment_params)
     if @comment.save
+      flash[:success] = 'Comment created!'
       redirect_to todo_path(@todo)
     else
-      render 'edit'
+      @comments = Comment.order created_at: :desc
+      render 'todos/show'
     end
+  end
+
+  def new
+    @comment = Comment.new
   end
 
   def destroy
@@ -32,7 +38,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:username, :body).merge(user_id: current_user.id)
+    params.require(:comment).permit(:body).merge(user_id: current_user.id)
   end
 
   def set_todo!

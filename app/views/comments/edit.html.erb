@@ -1,19 +1,16 @@
 <h1>Редактирование коментария</h1>
-<% if @comment.errors.any? %>
-    <% @comment.errors.full_messages.each do |msg| %>
-      <div class="alert alert-danger"><%= msg %></div>
-    <% end %>
-  <% end %>
+<%= render 'partials/errors', object: @comment %>
 <%= form_with model: [@todo, @comment] do |f| %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :body %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
+  </div>
   <p>
-    <%= f.label :Пользыватель %><br>
-    <%= f.text_field(:username, {:class => 'form-control'}) %>
-  </p>
-  <p>
-    <%= f.label :Текст %><br>
-    <%= f.text_area(:body, {:class => 'form-control'}) %>
-  </p>
-  <p>
-    <%= f.submit("Редактировать", {:class => 'form-control btn btn-warning'}) %>
+    <%= f.submit('comments add', class: 'btn btn-warning') %>
   </p>
 <% end %>
