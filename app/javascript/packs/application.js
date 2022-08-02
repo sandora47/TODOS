@@ -17,4 +17,3 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import '@popperjs/core'
-import 'bootstrap/js/dist/dropdown'
