@@ -58,3 +58,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'rubocop'
 gem 'awesome_print', '~> 1.8'
 gem 'draper'
+gem 'kaminari', '~>1.2'
