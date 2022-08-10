@@ -20,3 +20,17 @@ a{
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
+
+#myBtn {
+    display: none;
+    position: fixed;
+    right: 2rem;
+    bottom: 3rem;
+    border-radius: 100%;
+    padding: 0.5rem;
+}
+
+#myBtn:hover {
+    background-color: none; /* Add a dark-grey background on hover */
+    border-radius: 100%;
+}

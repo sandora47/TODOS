@@ -1,11 +1,11 @@
 <footer class="flex d-flex justify-content-between align-items-center py-3">
   <div>
-    <span id="text_footer">&copy; 2022 Company, Inc</span>
+    <span id="text_footer">&copy; <%= Date.current.year %> Company, Inc</span>
   </div>
 
   <ul class="nav col-md-4 justify-content-end d-flex">
-    <li class="ms-3"><a href="https://twitter.com/"><%= image_tag("twiter.svg", size: "30")%></a></li>
-    <li class="ms-3"><a href="https://www.instagram.com/"><%= image_tag("instagram.svg", size: "35")%></a></li>
-    <li class="ms-3"><a href="https://www.facebook.com/"><%= image_tag("facebook.svg", size: "35")%></a></li>
+    <li class="ms-3"><%= link_to image_tag("twiter.svg", size: "30"), "https://twitter.com" %></li>
+    <li class="ms-3"><%= link_to image_tag("instagram.svg", size: "35"), "https://www.instagram.com" %></li>
+    <li class="ms-3"><%= link_to image_tag("facebook.svg", size: "35"), "https://www.facebook.com" %></li>
   </ul>
 </footer>
