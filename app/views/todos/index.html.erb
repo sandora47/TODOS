@@ -1,8 +1,7 @@
+<% currently_at 'Home' %>
 <h1>todos glav</h1>
 
-<%= paginate @todos %>
-
-<span class="btn btn-info"><%= link_to "Add", new_todo_path %></span>
+<span class="btn btn-info"><%= nav_tab "Add", new_todo_path %></span>
 <% @todos.each do |todo| %>
   <article class="card mt-3">
     <div class="card-body">

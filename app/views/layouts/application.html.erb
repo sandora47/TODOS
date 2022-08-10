@@ -3,7 +3,7 @@
   <head>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <title>Todos</title>
+    <title><%= title(yield(:page_title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,14 +15,11 @@
 
   <body>
     <div class="page">
-      <%= render "layouts/header" %>
+      <%= yield :head_menu %>
       <div class="container">
-        <% flash.each do |k, v| %>
-          <%= tag.div v, class: "alert alert-#{k}", role: 'alert' %>
-        <% end %>
         <%= yield %>
       </div>
-      <%= render "layouts/footer" %>
+      <%= render "partials/footer" %>
     </div>
   </body>
 </html>

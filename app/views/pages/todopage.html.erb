@@ -1,3 +1,5 @@
+<% provide :page_title, 'Todo list' %>
+<% currently_at 'ToDos' %>
 <h1>todo list</h1>
 <span class="btn btn-info"><%= link_to "Add", new_todo_path %></span>
 <% @todo.each do |todo| %>
