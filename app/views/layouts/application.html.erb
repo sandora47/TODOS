@@ -17,8 +17,15 @@
     <div class="page">
       <%= yield :head_menu %>
       <div class="container">
+        <% flash.each do |k, v| %>
+          <%= tag.div v, class: "alert alert-#{k}", role: 'alert' %>
+        <% end %>
         <%= yield %>
       </div>
+      <div class="back-to-top" id="myBtn">
+        <%=link_to image_tag("top.png", size: "40")%>
+      </div>
+      <%= javascript_pack_tag 'top', 'data-turbolinks-track': 'reload' %>
       <%= render "partials/footer" %>
     </div>
   </body>

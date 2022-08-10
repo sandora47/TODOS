@@ -1,12 +1,10 @@
 <% provide :page_title, 'Registration user' %>
 <% currently_at 'Registration' %>
 <h1>Регистрация</h1>
-<%= form_with model: @user do |f| %>
-  <% if @user.errors.any? %>
-    <% @user.errors.full_messages.each do |msg| %>
-      <div class="alert alert-danger"><%= msg %></div>
-    <% end %>
-  <% end %>
+
+<%= render 'partials/errors', object: @user %>
+
+<%= form_with model: @user, local: true do |f| %>
   <p>
     <%= f.label :Email %><br>
     <%= f.email_field(:email, {:class => 'form-control'}) %>

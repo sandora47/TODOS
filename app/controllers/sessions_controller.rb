@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_to todos_path
     else
-      redirect_to new_session_path, notice: 'не праввильно'
+      flash[:danger] = 'Wrong password or username'
+      redirect_to new_session_path
     end
   end
 

@@ -1,7 +1,7 @@
 <% provide :page_title, 'Authorization user' %>
 <% currently_at 'Log_in' %>
 <h1>Авторизация</h1>
-<%= form_with url: session_path do |f| %>
+<%= form_with url: session_path, local: true do |f| %>
   <p>
     <%= f.label :Email %><br>
     <%= f.email_field(:email, {:class => 'form-control'}) %>

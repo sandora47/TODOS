@@ -1,12 +1,10 @@
 <% provide :page_title, 'Create todo' %>
 <% currently_at 'Creat todo' %>
 <h2>Добавление</h2>
+
+<%= render 'partials/errors', object: @todo %>
+
 <%= form_for :todo, url: todos_path do |f| %>
-  <% if @todo.errors.any? %>
-    <% @todo.errors.full_messages.each do |msg| %>
-      <div class="alert alert-danger"><%= msg %></div>
-    <% end %>
-  <% end %>
   <p>
     <%= f.label :Название %><br>
     <%= f.text_field(:title, {:class => 'form-control'}) %>

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class CommentsController < ApplicationController
   before_action :set_todo!
   before_action :set_comment!, except: :create

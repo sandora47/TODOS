@@ -1,7 +1,9 @@
 <% currently_at 'ToDos' %>
 <h1>Редактирование коментария</h1>
+
 <%= render 'partials/errors', object: @comment %>
-<%= form_with model: [@todo, @comment] do |f| %>
+
+<%= form_with model: [@todo, @comment], local: true do |f| %>
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
       <%= f.label :body %>
