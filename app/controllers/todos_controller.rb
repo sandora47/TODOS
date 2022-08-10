@@ -6,7 +6,12 @@ class TodosController < ApplicationController
   end
 
   def new
-    @todo = Todo.new
+    if user_signed_in?
+      @todo = Todo.new
+    else
+      flash[:danger] = "You must be logged in."
+      redirect_to new_session_path
+    end
   end
 
   def show; end
@@ -15,6 +20,7 @@ class TodosController < ApplicationController
 
   def update
     if @todo.update(todo_params)
+      flash[:success] = 'Todo update!'
       redirect_to @todo
     else
       render 'edit'
@@ -23,6 +29,7 @@ class TodosController < ApplicationController
 
   def destroy
     @todo.destroy
+    flash[:success] = 'Todo delete!'
 
     redirect_to todos_path
   end
@@ -31,6 +38,7 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
 
     if @todo.save
+      flash[:success] = 'Todo created!'
       redirect_to @todo
     else
       render 'new'
