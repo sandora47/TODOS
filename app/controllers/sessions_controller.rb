@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_to todos_path
     else
-      redirect_to new_session_path, notice: 'не праввильно'
+      render :new
     end
   end
 

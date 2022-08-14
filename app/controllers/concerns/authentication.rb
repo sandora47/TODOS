@@ -17,12 +17,14 @@ module Authentication
     def require_authentification
       return if user_signed_in?
 
+      flash[:warning] = 'You are not signed in!'
       redirect_to todos_path
     end
 
     def require_no_authentification
       return unless user_signed_in?
 
+      flash[:warning] = 'You are already signed in!'
       redirect_to todos_path
     end
 

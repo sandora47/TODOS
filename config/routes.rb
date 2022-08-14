@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'todos#index', as: 'home'
   get 'todos' => 'pages#todopage', as: 'todos'
   resource :session, only: %i[new create destroy]
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create edit update]
   resources :todos do
     resources :comments
   end

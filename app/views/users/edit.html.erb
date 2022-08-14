@@ -1,0 +1,37 @@
+<% provide :page_title, 'Edit profile' %>
+<% currently_at 'Edit profile' %>
+
+<h1 class="mb-4">Edit profile</h1>
+<%= form_with model: @user, local: true do |f| %>
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end %>
+  <p>
+    <%= f.label :Email %><br>
+    <%= f.email_field(:email, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    <%= f.label :Имя %><br>
+    <%= f.text_field(:name, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    <%= f.label :Пароль %><br>
+    <%= f.password_field(:password, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    <%= f.label :Подтверждение_пароля %><br>
+    <%= f.password_field(:password_confirmation, {:class => 'form-control'}) %>
+  </p>
+
+  <% unless @user.new_record? %>
+  <p>
+    <%= f.label :Old_password %><br>
+    <%= f.password_field(:old_password, {:class => 'form-control'}) %>
+  </p>
+    <% end %>
+  <p>
+    <%= f.submit(@user.new_record? ? "Зарегистрироватся" : "Save", {:class => 'form-control btn btn-warning'}) %>
+  </p>
+<% end %>
