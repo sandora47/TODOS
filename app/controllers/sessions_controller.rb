@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     user = User.find_by email: params[:email]
     if user&.authenticate(params[:password])
       sign_in user
+      remember(user) if params[:remember_me] == '1'
       redirect_to todos_path
     else
       render :new
