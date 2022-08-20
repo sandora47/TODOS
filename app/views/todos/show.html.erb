@@ -4,7 +4,7 @@
   <%= @todo.formatted_created_at %>
 </time>
 <p class='lead my-3'>
-  <%= @todo.body %>
+  <%= sanitize @todo.body %>
 </p>
 <hr>
 <%= render partial: 'partials/form_button',
@@ -34,13 +34,13 @@
 <h2 class='mt-4'>Comments</h2>
 
 <% @comments.each do |comment| %>
-  <article class='mb-3'>
+  <article class='mb-3 card' id="comment-<%= comment.id %>">
     <time datetime='<%= comment.formatted_created_at %>'>
       <%= comment.formatted_created_at %>
     </time>
 
     <p>
-      <%= comment.body %>
+      <%= sanitize comment.body %>
     </p>
     <%= render partial: 'partials/form_button',
                locals: { edit_path: edit_todo_comment_path(@todo, comment),

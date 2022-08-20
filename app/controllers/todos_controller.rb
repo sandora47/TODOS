@@ -24,7 +24,7 @@ class TodosController < ApplicationController
   def update
     if @todo.update(todo_params)
       flash[:success] = 'Todo update!'
-      redirect_to @todo
+      redirect_to home_path(@todo, anchor: "todo-#{@todo.id}")
     else
       render 'edit'
     end
@@ -34,7 +34,7 @@ class TodosController < ApplicationController
     @todo.destroy
     flash[:success] = 'Todo delete!'
 
-    redirect_to todos_path
+    redirect_to home_path(@todo)
   end
 
   def create
@@ -42,7 +42,7 @@ class TodosController < ApplicationController
 
     if @todo.save
       flash[:success] = 'Todo created!'
-      redirect_to @todo
+      redirect_to home_path(@todo)
     else
       render 'new'
     end

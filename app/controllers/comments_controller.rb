@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
   def update
     if @comment.update comment_params
       flash[:success] = 'Comment update'
-      redirect_to todo_path(@todo)
+      redirect_to todo_path(@todo, anchor: "comment-#{@comment.id}")
     else
       render :edit
     end

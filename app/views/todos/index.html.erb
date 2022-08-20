@@ -3,14 +3,14 @@
 
 <span class="btn btn-info"><%= nav_tab "Add", new_todo_path %></span>
 <% @todos.each do |todo| %>
-  <article class="card mt-3">
+  <article class="card mt-3" id="todo-<%= todo.id %>">
     <div class="card-body">
-      <h3><%= todo.title %></h3>
+      <h3><%= sanitize todo.title %></h3>
       <section class="card-text">
         <time datetime="<%= todo.formatted_created_at %>">
           <small><%= todo.formatted_created_at %></small>
         </time>
-        <p class="my-2"><%= todo.body %></p>
+        <div class="my-2"><%= sanitize todo.body %></div>
       </section>
       <div class="btn-group" role="group" aria-label="Basic example">
         <span class="me-1 py-1"><%= link_to "Читать далее", todo_path(todo), :class => 'btn btn-info' %></span>
