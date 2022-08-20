@@ -1,15 +1,6 @@
 <% currently_at 'ToDos' %>
-<h1><%= @todo.title %></h1>
-<time datetime='<%= @todo.formatted_created_at %>'>
-  <%= @todo.formatted_created_at %>
-</time>
-<p class='lead my-3'>
-  <%= sanitize @todo.body %>
-</p>
-<hr>
-<%= render partial: 'partials/form_button',
-  locals: { edit_path: edit_todo_path(@todo),
-            delete_path: todo_path(@todo) } %>
+
+<%= render partial: 'todos/todo_text', locals: {todo: @todo} %>
 
 <hr class='my-3'>
 <h2>Добавление коментария</h2>
@@ -33,17 +24,4 @@
 
 <h2 class='mt-4'>Comments</h2>
 
-<% @comments.each do |comment| %>
-  <article class='mb-3 card' id="comment-<%= comment.id %>">
-    <time datetime='<%= comment.formatted_created_at %>'>
-      <%= comment.formatted_created_at %>
-    </time>
-
-    <p>
-      <%= sanitize comment.body %>
-    </p>
-    <%= render partial: 'partials/form_button',
-               locals: { edit_path: edit_todo_comment_path(@todo, comment),
-                         delete_path: todo_comment_path(@todo, comment) } %>
-  </article>
-<% end %>
+<%= render partial: 'comments/comment', collection: @comments, as: :comment, locals: {todo: @todo} %>
