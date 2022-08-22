@@ -2,20 +2,7 @@
 <% currently_at 'ToDos' %>
 <h1>todo list</h1>
 <span class="btn btn-info"><%= link_to "Add", new_todo_path %></span>
-<% @todo.each do |todo| %>
-  <article class="card mt-3">
-    <div class="card-body">
-      <h3><%= sanitize todo.title %></h3>
-      <section class="card-text">
-        <time datetime="<%= todo.formatted_created_at %>">
-          <small><%= todo.formatted_created_at %></small>
-        </time>
-        <p class="my-2"><%= sanitize todo.body %></p>
-      </section>
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <span class="me-1 py-1"><%= link_to "Читать далее", todo_path(todo), :class => 'btn btn-info' %></span>
-        <span class="me-1 py-1"><%= button_to 'Удалить', todo_path(todo), method: :delete, :class => 'btn btn-danger' %></span>
-      </div>
-    </div>
-  </article>
-<% end %>
+
+<%= render partial: 'todos/todo', collection: @todos, as: :todo %>
+
+<%= paginate @todos %>

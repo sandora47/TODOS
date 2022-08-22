@@ -16,7 +16,7 @@ class TodosController < ApplicationController
 
   def show
     @comment = @todo.comments.build
-    @comments = Comment.order created_at: :desc
+    @comments = @todo.comments.order(created_at: :desc).page params[:page]
   end
 
   def edit; end

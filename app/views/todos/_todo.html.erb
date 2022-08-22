@@ -5,7 +5,7 @@
       <time datetime="<%= todo.formatted_created_at %>">
         <small><%= todo.formatted_created_at %></small>
       </time>
-      <div class="my-2"><%= sanitize todo.body %></div>
+      <div class="my-2"><%= truncate sanitize(todo.body), length: 150, omission: '...(continued)' %></div>
     </section>
     <div class="btn-group" role="group" aria-label="Basic example">
       <span class="me-1 py-1"><%= link_to "Читать далее", todo_path(todo), :class => 'btn btn-info' %></span>
