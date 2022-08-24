@@ -1,14 +1,18 @@
-<% if !comment.nil? %>
-  <article class='mb-3 card' id="comment-<%= comment.id %>">
-    <time datetime='<%= comment.formatted_created_at %>'>
-      <%= comment.formatted_created_at %>
-    </time>
+ <%= tag.article class: 'mb-3 card', id: dom_id(comment) do %>
+  <div class="card-body">
+    <section class="card-text">
+      <small>
+        <time datetime='<%= comment.formatted_created_at %>'>
+          <%= comment.formatted_created_at %>
+        </time>
+      </small>
 
-    <div>
-      <%= sanitize comment.body %>
-    </div>
-    <%= render partial: 'partials/form_button',
-               locals: { edit_path: edit_todo_comment_path(todo, comment),
-                         delete_path: todo_comment_path(todo, comment) } %>
-  </article>
+      <div class="mt-2 mb-3">
+        <%= sanitize comment.body %>
+      </div>
+    </section>>
+      <%= render partial: 'partials/form_button',
+                 locals: { edit_path: edit_todo_comment_path(todo, comment),
+                           delete_path: todo_comment_path(todo, comment) } %>
+  </div>
 <% end %>

@@ -1,22 +1,25 @@
+# frozen_string_literal: true
+
 class TodosController < ApplicationController
-  before_action :set_todo!, only: [:show, :destroy, :edit, :update]
+  include ActionView::RecordIdentifier
+  before_action :set_todo!, only: %i[show destroy edit update]
 
   def index
-    @todos = Todo.order(created_at: :desc).page params[:page]
+    @pagy, @todos = pagy Todo.order(created_at: :desc)
   end
 
   def new
     if user_signed_in?
       @todo = Todo.new
     else
-      flash[:danger] = "You must be logged in."
+      flash[:danger] = 'You must be logged in.'
       redirect_to new_session_path
     end
   end
 
   def show
     @comment = @todo.comments.build
-    @comments = @todo.comments.order(created_at: :desc).page params[:page]
+    @pagy, @comments = pagy @todo.comments.order(created_at: :desc)
   end
 
   def edit; end
@@ -24,7 +27,7 @@ class TodosController < ApplicationController
   def update
     if @todo.update(todo_params)
       flash[:success] = 'Todo update!'
-      redirect_to home_path(@todo, anchor: "todo-#{@todo.id}")
+      redirect_to home_path(@todo, anchor: dom_id(@todo))
     else
       render 'edit'
     end

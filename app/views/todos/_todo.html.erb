@@ -1,4 +1,4 @@
-<article class="card mt-3" id="todo-<%= todo.id %>">
+<%= tag.article class: 'mb-3 card', id: dom_id(todo) do %>
   <div class="card-body">
     <h3><%= sanitize todo.title %></h3>
     <section class="card-text">
@@ -12,4 +12,4 @@
       <span class="me-1 py-1"><%= button_to 'Удалить', todo_path(todo), method: :delete, :class => 'btn btn-danger' %></span>
     </div>
   </div>
-</article>
+<% end %>

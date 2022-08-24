@@ -26,4 +26,4 @@
 
 <%= render partial: 'comments/comment', collection: @comments, as: :comment, locals: {todo: @todo} %>
 
-<%= paginate @comments %>
+<%== pagy_bootstrap_nav @pagy %>

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  include ActionView::RecordIdentifier
   before_action :set_todo!
   before_action :set_comment!, except: :create
 
@@ -30,7 +31,7 @@ class CommentsController < ApplicationController
   def update
     if @comment.update comment_params
       flash[:success] = 'Comment update'
-      redirect_to todo_path(@todo, anchor: "comment-#{@comment.id}")
+      redirect_to todo_path(@todo, anchor: dom_id(@comment))
     else
       render :edit
     end
