@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :todos, dependent: :destroy
   attr_accessor :old_password, :remember_token
+
   has_secure_password validations: true
   validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
   validate :correct_old_password, on: :update, if: -> { password.present? }
@@ -23,7 +24,7 @@ class User < ApplicationRecord
 
   def remember_token_authenticated?(remember_token)
     return false unless remember_token_digest.present?
-    
+
     BCrypt::Password.new(remember_token_digest).is_password?(remember_token)
   end
 
