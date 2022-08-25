@@ -1,0 +1,15 @@
+<article class="card mt-3" id="todo-<%= todo.id %>">
+  <div class="card-body">
+    <h3><%= sanitize todo.title %></h3>
+    <section class="card-text">
+      <time datetime="<%= todo.formatted_created_at %>">
+        <small><%= todo.formatted_created_at %></small>
+      </time>
+      <div class="my-2"><%= truncate sanitize(todo.body), length: 150, omission: '...(continued)' %></div>
+    </section>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <span class="me-1 py-1"><%= link_to "Читать далее", todo_path(todo), :class => 'btn btn-info' %></span>
+      <span class="me-1 py-1"><%= button_to 'Удалить', todo_path(todo), method: :delete, :class => 'btn btn-danger' %></span>
+    </div>
+  </div>
+</article>

@@ -2,6 +2,6 @@
 
 class PagesController < ApplicationController
   def todopage
-    @todo = Todo.all
+    @todos = Todo.order(created_at: :desc).page params[:page]
   end
 end

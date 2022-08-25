@@ -1,0 +1,11 @@
+<h1><%= @todo.title %></h1>
+<time datetime='<%= @todo.formatted_created_at %>'>
+  <%= @todo.formatted_created_at %>
+</time>
+<p class='lead my-3'>
+  <%= sanitize @todo.body %>
+</p>
+<hr>
+<%= render partial: 'partials/form_button',
+           locals: { edit_path: edit_todo_path(todo),
+                     delete_path: todo_path(todo) } %>

@@ -1,0 +1,14 @@
+<% if !comment.nil? %>
+  <article class='mb-3 card' id="comment-<%= comment.id %>">
+    <time datetime='<%= comment.formatted_created_at %>'>
+      <%= comment.formatted_created_at %>
+    </time>
+
+    <div>
+      <%= sanitize comment.body %>
+    </div>
+    <%= render partial: 'partials/form_button',
+               locals: { edit_path: edit_todo_comment_path(todo, comment),
+                         delete_path: todo_comment_path(todo, comment) } %>
+  </article>
+<% end %>
