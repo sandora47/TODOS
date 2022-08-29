@@ -10,9 +10,9 @@
       <div class="mt-2 mb-3">
         <%= sanitize comment.body %>
       </div>
-    </section>>
+    </section>
       <%= render partial: 'partials/form_button',
-                 locals: { edit_path: edit_todo_comment_path(todo, comment),
-                           delete_path: todo_comment_path(todo, comment) } %>
+                 locals: { edit_path: edit_todo_comment_path(@todo, comment),
+                           delete_path: todo_comment_path(@todo, comment) } %>
   </div>
 <% end %>

@@ -2,6 +2,7 @@
 
 class TodosController < ApplicationController
   include ActionView::RecordIdentifier
+  include Pagy::Backend
   before_action :set_todo!, only: %i[show destroy edit update]
 
   def index

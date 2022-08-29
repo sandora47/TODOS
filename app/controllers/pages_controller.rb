@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
+  include Pagy::Backend
   def todopage
-    @todos = Todo.order(created_at: :desc).page params[:page]
+    @pagy, @todos = pagy Todo.order(created_at: :desc)
   end
 end
