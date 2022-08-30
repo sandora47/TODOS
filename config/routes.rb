@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   resources :todos do
     resources :comments
   end
+
+  namespace :admin do
+    resources :users, only: %i[index create]
+  end
 end

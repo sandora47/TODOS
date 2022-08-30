@@ -6,7 +6,7 @@ class TodosController < ApplicationController
   before_action :set_todo!, only: %i[show destroy edit update]
 
   def index
-    @pagy, @todos = pagy Todo.order(created_at: :desc)
+    @pagy, @todos = pagy(Todo.order(created_at: :desc))
   end
 
   def new
@@ -20,7 +20,7 @@ class TodosController < ApplicationController
 
   def show
     @comment = @todo.comments.build
-    @pagy, @comments = pagy @todo.comments.order(created_at: :desc)
+    @pagy, @comments = pagy(@todo.comments.order(created_at: :desc))
   end
 
   def edit; end

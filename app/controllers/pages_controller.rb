@@ -3,6 +3,6 @@
 class PagesController < ApplicationController
   include Pagy::Backend
   def todopage
-    @pagy, @todos = pagy Todo.order(created_at: :desc)
+    @pagy, @todos = pagy(Todo.order(created_at: :desc))
   end
 end
